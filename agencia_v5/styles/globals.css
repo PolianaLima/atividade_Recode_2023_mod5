@@ -1,0 +1,37 @@
+
+.min-heigth{
+  min-height: 82vh;
+}
+
+.link-bo{
+  text-decoration: none;
+}
+
+.list{
+  list-style: none;
+}
+
+/* styles.module.css */
+.home-banner {
+  background-image: url('/img/banner_home.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 250px; /* Ajuste conforme necessário */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Cor do texto para contraste */
+}
+
+.btn-primary{
+  background-color: #1560b4 !important;
+}
+
+.btn-primary:hover{
+  background-color: rgba(21, 96, 180, 0.76) !important;
+}
+
+.bg-app{
+  background-color: #1560b4 !important;
+}

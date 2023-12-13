@@ -1,0 +1,31 @@
+{
+  "name": "agencia_v5",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "bootstrap": "^5.3.2",
+    "date-fns": "^2.30.0",
+    "date-fns-tz": "^2.0.0",
+    "js-cookie": "^3.0.5",
+    "moment": "^2.29.4",
+    "next": "^14.0.3",
+    "react": "18.2.0",
+    "react-cookie": "^6.1.1",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.48.2",
+    "react-modal": "^3.16.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^8",
+    "eslint-config-next": "14.0.3"
+  }
+}

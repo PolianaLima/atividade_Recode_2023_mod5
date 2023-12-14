@@ -8,6 +8,13 @@ import Link from "next/link";
 
 function Index(props) {
 
+
+    /*
+    * Adicionar todos os voos colocando paginaçao apartir de 30 voos
+    * e colocando filtro por destino e data de partida
+    * adicionar banner ??
+    * */
+
     const [voos, setVoos] = useState([]);
 
     useEffect(() => {
@@ -75,7 +82,7 @@ function Index(props) {
 
                 <div className="container d-sm-flex align-items-lg-stretch bg-light p-5">
                     <div className="">
-                        <h1 className="mt-5">Voos para Salavador</h1>
+                        <h1 className="mt-5">Voos para Salvador</h1>
                         <Image src="/img/icone_salvador.png" width={300} height={300}
                                alt="Icone Voos imbativeis"/>
                         <Link href="/pesquisa/[codigobanner]" as={`/pesquisa/${encodeURIComponent('Salvador')}`}

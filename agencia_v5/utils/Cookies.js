@@ -1,13 +1,13 @@
 import Cookies from "js-cookie";
 
-export const saveUserToCookie = (userData, expirationDays = 1)=>{
+export const saveUserToCookie = (userData, expirationMinutes = 2)=>{
 
-    Cookies.set('user', JSON.stringify(userData), {expires:expirationDays})
+    Cookies.set('user', JSON.stringify(userData), {expires:expirationMinutes / 24})
 
     setTimeout(()=>{
         removeUserFromCookie();
 
-    },expirationDays * 24 * 60 *60 *1000 );
+    },expirationMinutes * 24 * 60 *60 *1000 );
 }
 
 

@@ -17,7 +17,7 @@ function CardVoos({voo}) {
                               style={{cursor: "pointer"}}>{voo.siglaAeroportoSaida}</span>
                         <p className="text-body-secondary">{voo.cidadeSaida}</p>
                     </div>
-                    <div className="w-25">
+                    <div className="w-100">
                         <span className="fw-bold" title={voo.nomeAeroportoChegada}
                               style={{cursor: "pointer"}}>{voo.siglaAeroportoChegada}</span>
                         <p className="text-body-secondary">{voo.cidadeChegada}</p>
@@ -45,7 +45,7 @@ function CardVoos({voo}) {
                 </div>
             </div>
 
-            <div className="w-25 border-start p-5">
+            <div className="w-100 border-start p-5" style={{maxWidth:400}}>
                 <div className="w-100  d-sm-flex flex-column align-items-end">
                     <p>Preço por Adulto</p>
                     <p className="fs-5 fw-bold">R$ {(voo.preco - (voo.preco * voo.desconto) / 100).toFixed(2)}</p>

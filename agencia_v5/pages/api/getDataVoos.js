@@ -1,9 +1,8 @@
-import moment from "moment";
-import { http } from "@/utils/http";
+import {http} from "@/utils/http";
+import {ptBR} from "date-fns/locale";
+import {format, parseISO} from "date-fns";
 
 export const getDataVoos = async ()=>{
-
-    moment.locale('pt-br');
 
     try {
         const response = await http.get(`/voosLista`);
@@ -54,17 +53,19 @@ export const getDataVoos = async ()=>{
             }, {});
 
       return voos.map((voo) => ({
-            ...voo,
-            nomeEmpresa: empresaMap[voo.id_empresa],
-            cidadeSaida: aeroportoMap[voo.id_aeroporto_partida]?.cidade,
-            nomeAeroportoSaida: aeroportoMap[voo.id_aeroporto_partida]?.nome,
-            cidadeChegada: aeroportoMap[voo.id_aeroporto_chegada]?.cidade,
-            nomeAeroportoChegada: aeroportoMap[voo.id_aeroporto_chegada]?.nome,
-            siglaAeroportoSaida: aeroportoMap[voo.id_aeroporto_partida]?.sigla,
-            siglaAeroportoChegada: aeroportoMap[voo.id_aeroporto_chegada]?.sigla,
-            data_partida_formatada: moment(voo.data_partida).format('ddd D MMM YYYY'),
+          ...voo,
+          nomeEmpresa: empresaMap[voo.id_empresa],
+          cidadeSaida: aeroportoMap[voo.id_aeroporto_partida]?.cidade,
+          nomeAeroportoSaida: aeroportoMap[voo.id_aeroporto_partida]?.nome,
+          cidadeChegada: aeroportoMap[voo.id_aeroporto_chegada]?.cidade,
+          nomeAeroportoChegada: aeroportoMap[voo.id_aeroporto_chegada]?.nome,
+          siglaAeroportoSaida: aeroportoMap[voo.id_aeroporto_partida]?.sigla,
+          siglaAeroportoChegada: aeroportoMap[voo.id_aeroporto_chegada]?.sigla,
+          data_partida_formatada: format(parseISO(voo.data_partida), 'eee d MMM yyyy', { locale: ptBR }),
 
-        }));
+      }));
+
+
     }catch (error) {
         console.error("Erro ao buscar dados", error);
         throw error; // Rejeitar o erro para que o chamador possa lidar com ele

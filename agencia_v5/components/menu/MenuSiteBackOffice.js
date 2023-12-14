@@ -6,8 +6,9 @@ import { useAuth } from "@/context/authContext";
 function MenuSiteBackOffice(props) {
   const { logout, user } = useAuth();
   return (
-    <div className="container-fluid bg-primary">
-      <nav className="container navbar navbar-expand-lg justify-content-between">
+    <div className="container-fluid bg-app">
+      <nav className="container d-flex p-3 fs-5  justify-content-between align-items-center">
+
         <Link href="/backoffice/dashboard">
           <Image
             src="/img/logo.png"
@@ -17,17 +18,6 @@ function MenuSiteBackOffice(props) {
           />
         </Link>
 
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
 
         <div className="w-100 ms-5">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -83,6 +73,7 @@ function MenuSiteBackOffice(props) {
             </li>
           </ul>
         </div>
+
       </nav>
     </div>
   );

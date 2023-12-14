@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Carousel from "@/components/cards/Carousel";
 import Head from "next/head";
-import Image from "next/image";
-import moment from "moment";
-import {http} from "@/utils/http";
 import {getDataVoos} from "@/pages/api/getDataVoos";
 import CardVooPromoImg from "@/components/cards/CardVooPromoImg";
 
@@ -72,7 +69,7 @@ function Index(props) {
                                  alt="airplane-emoji" className="me-2"/>
                             VOOS PROMOCIONAIS
                         </h1>
-                        <div className="d-sm-flex">
+                        <div className="d-flex">
                             <input
                                 className="form-control me-2"
                                 type="search"

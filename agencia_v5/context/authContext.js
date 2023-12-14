@@ -21,6 +21,8 @@ export const AuthProvider = ({ children }) => {
         setToken(userData.token);
         setUser(userData.usuario)
         saveUserToCookie(userData);
+        router.push(window.locale.pathname)
+
     };
 
 

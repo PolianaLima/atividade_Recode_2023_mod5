@@ -8,7 +8,6 @@ import {http} from "@/utils/http";
 
 function CardViagens({passagem, token}) {
 
-    console.log(token)
     const router = useRouter();
 
     const dataPartida = parseISO(`${passagem.voo.data_partida}T${passagem.voo.hora_partida}`);
@@ -97,7 +96,7 @@ function CardViagens({passagem, token}) {
                     <p>CPF: {passagem.passageiro.cpf}</p>
                 </div>
 
-                <button className="btn btn-danger" onClick={() => openModal(passagem.id)}>Cancelar Passagem</button>
+                <button className="btn btn-danger w-100" onClick={() => openModal(passagem.id)}>Cancelar Passagem</button>
 
 
                 <ModalComponent isOpen={modalIsOpen}>

@@ -6,6 +6,7 @@ import axios from "axios";
 import {http} from "@/utils/http";
 import {router, useRouter} from "next/router";
 import {useAuth} from "@/context/authContext";
+import Link from "next/link";
 
 function Index(props) {
 
@@ -53,7 +54,8 @@ function Index(props) {
                 </div>
                 <div className="form container mt-5 w-100 d-flex flex-column justify-content-start p-3">
                     <form className="d-flex flex-column" style={{maxWidth: 400}}>
-                        <h3 className="mb-5 text-secondary">Crie sua conta</h3>
+                        <h3 className="mb-3 text-secondary">Crie sua conta</h3>
+                        <Link href="/login" className="mb-4 link-underline-success fs-5">Já sou cadastrado</Link>
                         <input type="text"
                                className="form-control mb-3"
                                placeholder="Nome Completo"

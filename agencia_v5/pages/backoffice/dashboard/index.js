@@ -7,8 +7,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Paginacao from "@/components/Paginacao";
 import ModalComponent from "@/components/ModalComponent";
-import moment from "moment/moment";
 import {getTokenVerify} from "@/pages/api/getTokenVerify";
+import {format, parseISO} from "date-fns";
+import {ptBR} from "date-fns/locale";
 
 function Index(props) {
 
@@ -111,7 +112,7 @@ function Index(props) {
                     nomeAeroportoSaida: aeroportoMap[voo.id_aeroporto_partida]?.nome,
                     cidadeChegada: aeroportoMap[voo.id_aeroporto_chegada]?.cidade,
                     nomeAeroportoChegada: aeroportoMap[voo.id_aeroporto_chegada]?.nome,
-                    data_partida_formatada: moment(voo.data_partida).format('DD/MM/YYYY'),
+                    data_partida_formatada: format(parseISO(voo.data_partida), 'eee d MMM yyyy', { locale: ptBR }),
                 }));
                 setVoos(voosDados);
                 setTotalPages(response.data.totalPages);

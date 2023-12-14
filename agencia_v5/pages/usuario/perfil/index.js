@@ -103,10 +103,11 @@ function Index(props) {
                     })
                 )]);
 
-                setPassagem(passagensWithDetails)
+                setPassagem(passagensWithDetails);
 
             } catch (e) {
                 console.error("Erro ao buscar passagens", e);
+                //Tratar erro aqui vindo do back end
             }
         };
 
@@ -141,23 +142,7 @@ function Index(props) {
                     </div>
                 </div>
 
-                <div className="mt-5 d-sm-flex justify-content-between">
-                    <div className="w-100">
-                        {passagem && passagem.length > 0 ? (
-                           passagem.map(passagemMap =>
-                               <div key={passagemMap.id}>
-                                   <CardViagens   passagem={passagemMap} token={tokenUsuario}/>
-                               </div>
-
-                           )
-                        ) : (
-                            <div className="d-flex flex-column justify-content-center align-items-center ">
-                                <h3 className="text-body-secondary"> OPS! Sem dados de viagens no momento!</h3>
-                                <img width="48" height="48" src="https://img.icons8.com/color/48/000000/happy--v1.png"
-                                     alt="happy--v1"/>
-                            </div>
-                        )}
-                    </div>
+                <div className="mt-5 d-sm-flex flex-row-reverse justify-content-between">
 
                     <div className="w-100" style={{maxWidth: 400}}>
                         <div className="p-4 d-flex flex-column shadow border w-100 ms-2 justify-content-center">
@@ -170,6 +155,24 @@ function Index(props) {
                         </div>
 
                     </div>
+
+
+                    <div className="w-100">
+                        {passagem && passagem.length > 0 ? (
+                            passagem.map(passagemMap =>
+                                <div key={passagemMap.id}>
+                                    <CardViagens passagem={passagemMap} token={tokenUsuario}/>
+                                </div>
+                            )
+                        ) : (
+                            <div className="d-flex flex-column justify-content-center align-items-center ">
+                                <h3 className="text-body-secondary"> OPS! Sem dados de viagens no momento!</h3>
+                                <img width="48" height="48" src="https://img.icons8.com/color/48/000000/happy--v1.png"
+                                     alt="happy--v1"/>
+                            </div>
+                        )}
+                    </div>
+
                 </div>
 
             </main>

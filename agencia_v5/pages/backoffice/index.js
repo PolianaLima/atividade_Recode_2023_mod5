@@ -4,13 +4,14 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useAuth } from "@/context/authContext";
-import { useEffect } from "react";
+import {useEffect, useState} from "react";
 import {http} from "@/utils/http";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 
+  const [error, setError] = useState(false);
 
   const {
     register,
@@ -41,6 +42,7 @@ export default function Home() {
       }
     } catch (error) {
       if (axios.isAxiosError(error) && error.response) {
+        setError(true)
         console.error("Erro na resposta da API:", error.response.data);
       } else {
         console.error("Erro ao enviar dados para a API:", error);
@@ -83,6 +85,10 @@ export default function Home() {
             {errors?.senha?.type === "required" && (
               <p className=" text-danger fw-bold">Senha Obrigatório!</p>
             )}
+
+            {error === true ? (
+                <p className="fw-bold text-danger">Senha ou usuario invalidos</p>
+            ): ("")}
 
             <button
               className="btn btn-primary w-100 mb-3"
